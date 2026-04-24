@@ -14,7 +14,7 @@ export const fontBangla = localFont({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://hero-kidz.vercel.app"),
+  metadataBase: new URL("https://hero-kidzz-part-1-sand.vercel.app"),
 
   title: {
     default: "HeroKidz | Smart Learning Toys for Kids",
@@ -61,7 +61,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.HeroKidz.com",
+    url: "https://hero-kidzz-part-1-sand.vercel.app",
     siteName: "HeroKidz",
     title: "HeroKidz | Smart Learning Toys for Kids",
     description:
