@@ -6,12 +6,14 @@ const Logo = () => {
   return (
     <Link href={"/"} className="flex items-center gap-1">
       <Image
-        alt="hero-kids"
+        alt="logo-hero-kidz"
         src={"/assets/logo.png"}
         width={50}
         height={40}
-      ></Image>
-      <h3 className="text-xl font-bold">Hero <span className="text-primary">Kidz</span>  </h3>
+      />
+      <h2 className="text-xl font-bold">
+        Hero <span className="text-primary">Kidz</span>{" "}
+      </h2>
     </Link>
   );
 };

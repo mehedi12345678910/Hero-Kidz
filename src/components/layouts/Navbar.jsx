@@ -1,24 +1,33 @@
 import React from "react";
 import Logo from "./Logo";
-import NavLink from "../buttons/NavLink";
 import Link from "next/link";
+import NavLink from "../buttons/NavLink";
 import { FiShoppingCart } from "react-icons/fi";
+import AuthButtons from "../buttons/AuthButtons";
 
 const Navbar = () => {
-  const nav=(
+  const nav = (
     <>
-    <li><NavLink href={'/'}>Home</NavLink></li>
-    <li><NavLink href={'/products'}>Products</NavLink></li>
-    <li><NavLink href={'/blog'}>Blog</NavLink></li>
-    <li><NavLink href={'/contact'}>Contact</NavLink></li>
+      <li>
+        <Link href={"/"}>Home</Link>
+      </li>
+      <li>
+        <NavLink href={"/products"}>Products</NavLink>
+      </li>
+      <li>
+        <NavLink href={"/blog"}>blog</NavLink>
+      </li>
+      <li>
+        <NavLink href={"/contact"}>Contact</NavLink>
+      </li>
     </>
-  )
+  );
   return (
     <div>
       <div className="navbar bg-base-100 ">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost  lg:hidden">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -42,16 +51,16 @@ const Navbar = () => {
               {nav}
             </ul>
           </div>
-         <Logo></Logo>
+          <Logo></Logo>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {nav}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{nav}</ul>
         </div>
-        <div className="navbar-end gap-3">
-           <Link href={"/cart"} className="btn btn-primary"><FiShoppingCart></FiShoppingCart></Link>
-           <Link href="/login"> <button className="btn border border-primary text-primary">Login</button></Link>
+        <div className="navbar-end space-x-4">
+          <Link href={"/cart"} className="btn btn-primary">
+            <FiShoppingCart></FiShoppingCart>
+          </Link>
+          <AuthButtons></AuthButtons>
         </div>
       </div>
     </div>

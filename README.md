@@ -1,23 +1,40 @@
 # Hero Kidzz - Project Assets
-<img src="assets/hero.png">
+<img src="public/assets/hero.png">
+
 ## Overview
 
 Hero Kidzz is a small, single-vendor e-commerce web application designed for selling children's products. This repository contains all project assets including images, icons, and media files.
 
-## Features
+## Run the Code 
+### CLONE
+```bash
+ git clone https://github.com/ferdouszihad/Hero-Kidzz-part-1.git
 
-- 🛍️ **Product Catalog** - Browse children's toys and accessories
-- 🛒 **Shopping Cart** - Add and manage items
-- 💳 **Easy Checkout** - Safe payment processing
-- 📦 **Order Invoice** - Monitor shipments
-- 👤 **User Accounts** - Save preferences and history
-- 🎨 **Responsive Design** - Mobile-friendly interface
-- ⭐ **Product Reviews** - Customer feedback system
+```
+### ENV
+set .env in root folder with following credentials
+```bash
+MONGODB_URI=MONGODB_URI=
+DBNAME=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
 
-## Starter packages
 ```
-npm install react-icons mongodb bcryptjs
+
+### Install
+```bash
+npm install
 ```
+
+### Run 
+```bash
+npm run dev
+```
+
+## DATA
+<a href="src/data/toys.json">HERE is the JSON DATA</a>
+
+
 
 ## Colors
 
