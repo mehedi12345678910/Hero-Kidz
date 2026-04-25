@@ -3,7 +3,7 @@ export default function BlogPage() {
     <main className="max-w-5xl mx-auto px-4 py-10">
       {/* Hero */}
       <section className="text-center mb-12">
-        <span className="badge badge-primary mb-4">Parenting • Learning</span>
+        <span className="badge badge-primary mb-4">Parenting • Learning now</span>
         <h1 className="text-4xl font-bold leading-tight mt-3">
           Why Learning Toys Are Important for Early Childhood
         </h1>
