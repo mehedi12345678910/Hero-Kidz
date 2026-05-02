@@ -1,4 +1,5 @@
 import { getSingleProduct } from "@/actions/server/product";
+import { fontBangla } from "@/app/layout";
 import CartButton from "@/components/buttons/CartButton";
 
 import Image from "next/image";
@@ -59,7 +60,9 @@ const ProductDetails = async ({ params }) => {
   const discountedPrice = price - (price * discount) / 100;
 
   return (
-    <div className="max-w-6xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+    <div
+      className={`  max-w-6xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-10`}
+    >
       {/* Image */}
       <div className="rounded-xl overflow-hidden ">
         <Image
@@ -101,16 +104,9 @@ const ProductDetails = async ({ params }) => {
         </div>
 
         {/* Actions */}
-        <CartButton product={product}></CartButton>
-      </div>
-      <div className="col-span-full">
-        {/* Description */}
-        <div className="mt-8 space-y-4 text-gray-700 leading-relaxed">
-          {description?.split("\n\n").map((para, idx) => (
-            <p key={idx}>{para}</p>
-          ))}
-        </div>
-
+        <CartButton
+          product={{ ...product, _id: product._id.toString() }}
+        ></CartButton>
         {/* Key Features */}
         <div className="mt-6">
           <h3 className="font-semibold mb-2">Key Features</h3>
@@ -119,6 +115,14 @@ const ProductDetails = async ({ params }) => {
               <li key={i}>{item}</li>
             ))}
           </ul>
+        </div>
+      </div>
+      <div className="col-span-full">
+        {/* Description */}
+        <div className="mt-8 space-y-4 text-gray-700 leading-relaxed">
+          {description?.split("\n\n").map((para, idx) => (
+            <p key={idx}>{para}</p>
+          ))}
         </div>
 
         {/* Q&A */}

@@ -6,11 +6,13 @@ import { postUser } from "@/actions/server/auth";
 import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 import Swal from "sweetalert2";
+import { AiOutlineLoading } from "react-icons/ai";
 
 export const RegisterForm = () => {
   const params = useSearchParams();
   const router = useRouter();
   const callbackUrl = params.get("callbackUrl") || "/";
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -23,6 +25,19 @@ export const RegisterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
+    if (!form.email.endsWith("gmail.com")) {
+      Swal.fire("We only Accept Gmail", "Gmail একাউণ্ট ব্যবহার করুন", "error");
+      setLoading(false);
+      return;
+    }
+
+    if (form.password.length < 6) {
+      Swal.fire("Week Password", "Stong পাসওয়ার্ড দিন", "error");
+      setLoading(false);
+      return;
+    }
     const result = await postUser(form);
 
     if (result.acknowledged) {
@@ -36,13 +51,29 @@ export const RegisterForm = () => {
         Swal.fire("success", "Registered successfully", "success");
         router.push(callbackUrl);
       }
+      setLoading(false);
     } else {
-      Swal.fire("erro", "Sorry", "error");
+      Swal.fire("error", "এই gmail এ  একটি একাউন্ট আছে । লগিন করুন ", "error");
+      setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-base-200">
+    <div className="min-h-screen relative flex items-center justify-center bg-base-200">
+      <div
+        className={` ${
+          loading ? " flex opacity-80 inset-0 absolute" : "hidden"
+        }  z-20 glass w-full  h-full  justify-center items-center gap-4`}
+      >
+        <AiOutlineLoading
+          size={50}
+          className="animate-spin text-primary font-bold"
+        />
+        <h2 className={`text-xl font-bold animate-pulse`}>
+          {" "}
+          Processing Registration{" "}
+        </h2>
+      </div>
       <div className="card w-full max-w-sm shadow-xl bg-base-100">
         <div className="card-body">
           <h2 className="text-2xl font-bold text-center">Create Account</h2>
@@ -69,13 +100,17 @@ export const RegisterForm = () => {
             <input
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="min 6 character"
               className="input input-bordered w-full"
               onChange={handleChange}
               required
             />
 
-            <button type="submit" className="btn btn-primary w-full">
+            <button
+              disabled={loading}
+              type="submit"
+              className="btn btn-primary w-full"
+            >
               Register
             </button>
           </form>

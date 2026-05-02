@@ -17,9 +17,21 @@ const CartButton = ({ product }) => {
   const handleAdd2Cart = async () => {
     setIsLoading(true);
     if (islogin) {
-      const result = await handleCart({ product, inc: true });
+      const result = await handleCart(product._id);
       if (result.success) {
-        Swal.fire("Added to Cart", product?.title, "success");
+        Swal.fire({
+          title: "Added to Cart",
+          text: `${product.title} কার্টে যুক্ত করা হয়েছে`,
+          icon: "success",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          cancelButtonText: "আরো কিনতে চাই",
+          confirmButtonText: "চেকআউট করুন",
+        }).then((res) => {
+          if (res.isConfirmed) router.push("/cart");
+        });
+        // Swal.fire("Added to Cart", product?.title, "success");
       } else {
         Swal.fire("Opps", "Something Wrong Happen", "error");
       }

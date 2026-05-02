@@ -4,8 +4,8 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div className="flex justify-between items-center">
-      <div className="flex-1 space-y-5">
+    <div className="flex flex-col-reverse md:flex-row justify-between items-center">
+      <div className="flex-1 space-y-5 text-center md:text-left">
         <h2 className={`${fontBangla.className} text-6xl font-bold leading-20`}>
           আপনার শিশুকে দিন একটি{" "}
           <span className="text-primary">সুন্দর ভবিষ্যত</span>

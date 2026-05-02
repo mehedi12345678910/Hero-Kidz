@@ -1,9 +1,11 @@
+import Image from "next/image";
+
 export default function BlogPage() {
   return (
     <main className="max-w-5xl mx-auto px-4 py-10">
       {/* Hero */}
       <section className="text-center mb-12">
-        <span className="badge badge-primary mb-4">Parenting • Learning now</span>
+        <span className="badge badge-primary mb-4">Parenting • Learning</span>
         <h1 className="text-4xl font-bold leading-tight mt-3">
           Why Learning Toys Are Important for Early Childhood
         </h1>
@@ -15,7 +17,9 @@ export default function BlogPage() {
 
       {/* Featured Image */}
       <section className="mb-10">
-        <img
+        <Image
+          width={600}
+          height={420}
           src="https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8"
           alt="Kids learning toys"
           className="w-full h-[420px] object-cover rounded-2xl shadow"

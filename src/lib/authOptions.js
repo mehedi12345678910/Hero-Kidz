@@ -64,7 +64,7 @@ export const authOptions = {
       return session;
     },
     async jwt({ token, user, account, profile, isNewUser }) {
-      console.log("account data in token", account);
+      console.log("account data in token", token);
       if (user) {
         if (account.provider == "google") {
           const dbUser = await dbConnect(collections.USERS).findOne({
