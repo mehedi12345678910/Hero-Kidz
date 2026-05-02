@@ -54,7 +54,7 @@ export const createOrder = async (payload) => {
   });
 
   await sendEmail({
-    to: "ferdouszihad.ph@gmail.com",
+    to: "mdmehedi01326018868@gmail.com",
     subject: "Congrates🔥. New Sell  from Hero Kidz",
     html: adminOrderNotificationTemplate({
       orderId: result.insertedId.toString(),
